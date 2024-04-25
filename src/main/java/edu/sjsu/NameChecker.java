@@ -16,7 +16,7 @@ public class NameChecker {
 
         if (input.length() >= 2 && input.length() <= 40 && input.matches("^(?!.*[-']{2})[a-zA-Z-'']+$")
                 && !input.startsWith("-")
-                && !input.startsWith("'")) {
+                && !input.startsWith("'") && input.indexOf("'") == input.lastIndexOf("'")) {
             return true;
         } else {
             return false;
