@@ -1,7 +1,5 @@
 package edu.sjsu;
 
-import java.util.regex.*;
-
 public class NameChecker {
     /**
      * Checks if a given string is a valid name following these rules:
@@ -16,10 +14,9 @@ public class NameChecker {
     public static boolean check(String input) {
         // TODO: implement
 
-        String regex = "^(?!['-])(?!.*['-]{2})[a-zA-Z'-]{2,40}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(input);
-        if (matcher.matches()) {
+        if (input.length() >= 2 && input.length() <= 40 && input.matches("^(?!.*[-']{2})[a-zA-Z-'']+$")
+                && !input.startsWith("-")
+                && !input.startsWith("'")) {
             return true;
         } else {
             return false;
